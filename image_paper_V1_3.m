@@ -23,7 +23,7 @@ sample_img = im2double(sample_img);
 
 % constants
 L = 256; % The magnitude of each and every color channel is confined within the range [0 , L-1]
-M = 256;% total intensity levels __________ Q: is it true ?????
+M = 256;% total intensity levels __________ Q: is it true ????? NO :D 
 
 % Extract color channels. REPEATED
 redChannel = sample_img(:,:,1); % Red channel
@@ -98,13 +98,12 @@ imhist(intensity);
 % figure()
 % imshow(rgb_stretched_Image)     
 
-% hist = counts .* binLocations; %%%%% Q: is this right or I must just use counts ???????
 hist = counts;
 
 
 % (17) the clipping limit is computed based on the mean value of the
 % intensity 
-% Tc = sum(hist(1:L))/(L+1);  %%%%%% Q:which one is true ?????????
+% Tc = sum(hist(1:L))/(L+1);  %%%%%% Q ??
 Tc = mean(hist);
 
 % (16) h (i) c is histogram clipping which is used to control the level of excessive
@@ -142,7 +141,7 @@ end
 for i = 1:L
     
     % (14) the CDF, c(i) is formulated as:
-    C(i) = sum(P(1:i));                                    %%%%% Q: or L ?????
+    C(i) = sum(P(1:i));                 %%%%% Q: or L ?????
 %     disp('length C(i)')
 %     disp(length(C(i)))
 %     disp(P(i))
