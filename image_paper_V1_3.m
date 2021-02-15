@@ -1,7 +1,6 @@
 % Name : hossein hayati 
 
 
-
 clc;
 clear;
 close all;
@@ -9,7 +8,7 @@ close all;
 %%%%% Section 2 : Conventional image enhancement method %%%%%
 
 % just load and plot an image for test
-sample_img = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\reference_images\I08.BMP');
+sample_img = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\distorted_images\I19_17_4.bmp');
 figure('Name','input image')
 imshow(sample_img)
 sample_img = im2double(sample_img);
