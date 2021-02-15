@@ -1,0 +1,15 @@
+clc 
+clear 
+close all 
+
+imagefiles = dir('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\distorted_images\I19*.bmp');      
+nfiles = length(imagefiles);    % Number of files found
+for ii=1:nfiles
+   currentfilename = imagefiles(ii).name;
+   img_folder = imagefiles(ii).folder;
+   currentimage = imread(fullfile(img_folder,currentfilename));
+   figure('Name',currentfilename)
+   imhist(currentimage)
+   ylim([0,3000]);
+
+end
