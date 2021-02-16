@@ -1,5 +1,6 @@
 % Name : hossein hayati 
 
+
 clc;
 clear;
 close all;
@@ -136,7 +137,7 @@ intensity_max = max(intensity(:));
 
 % (9) Transformed pixel intensity 
 for i=1:L
-    disp(i)
+%     disp(i)
     for l = 1:Length
         for w = 1:Width
             if uint8(intensity(l,w)*255+1) == i
@@ -159,6 +160,7 @@ imhist(result_rgb)
 figure('Name','rgb output')
 imshow(result_rgb)
 
+%%
 % 4.1 Entropy:
 % result_rgb = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\reference_images\I19.bmp');
 % result_rgb = im2double(result_rgb);
@@ -166,3 +168,9 @@ imshow(result_rgb)
 Entropy = entropy(result_rgb);
 disp("Entropy")
 disp(Entropy)
+
+HE_tst = histeq(sample_img);
+
+HE_Entropy = entropy(HE_tst);
+disp("Entropy HE")
+disp(HE_Entropy)
