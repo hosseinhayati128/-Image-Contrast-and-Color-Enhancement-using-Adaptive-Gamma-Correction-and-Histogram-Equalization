@@ -158,3 +158,11 @@ imhist(result_rgb)
 
 figure('Name','rgb output')
 imshow(result_rgb)
+
+% 4.1 Entropy:
+% result_rgb = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\reference_images\I19.bmp');
+% result_rgb = im2double(result_rgb);
+
+Entropy = entropy(result_rgb);
+disp("Entropy")
+disp(Entropy)
