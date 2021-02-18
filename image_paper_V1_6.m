@@ -9,7 +9,6 @@ close all;
 
 % just load and plot an image for test
 sample_img = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\distorted_images\I19_17_4.bmp');
-% sample_img = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\reference_images\I19.bmp');
 
 sample_img = im2double(sample_img);
 figure('Name','input image double')
@@ -19,7 +18,6 @@ imhist(sample_img)
 
 % constants
 L = 256; % The magnitude of each and every color channel is confined within the range [0 , L-1]
-M = 256;% total intensity levels ???? ( wrong ) 
 
 
 %%%%% 3. Proposed work %%%%%
@@ -54,11 +52,6 @@ r_stretched = rn/max_rn;
 g_stretched = gn/max_gn;
 before_stretched = (blueChannel+greenChannel+redChannel)/3;
 after_stretched = (b_stretched+r_stretched+g_stretched)/3;
-% close all
-% figure('Name','imhist before_stretched')
-% imhist(before_stretched);
-% figure('Name','imhist after_stretched')
-% imhist(after_stretched);
 % Recombine separate color channels into an RGB image.
 rgb_stretched_Image = cat(3, r_stretched, g_stretched, b_stretched);
 
@@ -93,18 +86,10 @@ for hist_id = 1:length_hist
     end
     clipped_hist(hist_id) = Tc;
 end
-% 
-% figure('Name','imhist hist')
-% plot(hist)
-% figure('Name','imhist clipped_hist')
-% plot(clipped_hist)
-
 %%
 
 % (15) the corresponding PDF (p(i)) is calculated as:
-% M is the total intensity levels   
-P = clipped_hist / sum(clipped_hist);  %         QQQ
-% P = clipped_hist / M;
+P = clipped_hist / sum(clipped_hist);      
 
 % (14) the CDF, c(i) is formulated as:
 C = cumsum(P);
@@ -131,8 +116,6 @@ gamma = 1 - Cw;
 [Length , Width] = size(intensity) ;
 result = zeros(Length,Width);
 intensity_max = max(intensity(:));
-% intensity_max = max(max(intensity(:))); 
-% intensity = uint8(intensity*255);
 
 
 % (9) Transformed pixel intensity 
@@ -146,7 +129,6 @@ for i=1:L
         end
     end
 end
-% test =  power(round(intensity/intensity_max),gamma) ;
 
 H1 = hsi_image(:, :, 1);
 S1 = hsi_image(:, :, 2);
@@ -162,8 +144,6 @@ imshow(result_rgb)
 
 %%
 % 4.1 Entropy:
-% result_rgb = imread('C:\Users\h256.DESKTOP-NJDT39C\Documents\projects\azad\image\DS\reference_images\I19.bmp');
-% result_rgb = im2double(result_rgb);
 
 Entropy = entropy(result_rgb);
 disp("Entropy")
